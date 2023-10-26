@@ -14,4 +14,6 @@ func main() {
 	if err != nil {
 		return
 	}
+
+	fmt.Println("실행 결과")
 }
