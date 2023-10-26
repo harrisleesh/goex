@@ -18,4 +18,6 @@ func TestCalculatorBinary(t *testing.T) {
 
 func TestCalculatorMultiple(t *testing.T) {
 	assert.Equal(t, Calculate("1 + 2 - 1"), int64(2))
+	assert.Equal(t, Calculate("3 + 2 * 3"), int64(15))
+	assert.Equal(t, Calculate("4 - 3 * 3 + 4"), int64(7))
 }
