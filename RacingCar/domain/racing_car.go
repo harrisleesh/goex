@@ -9,5 +9,11 @@ func (c *RacingCar) move() {
 }
 
 type RacingCars struct {
-	racingCars []RacingCar
+	racingCars []*RacingCar
+}
+
+func (cars *RacingCars) move() {
+	for _, c := range cars.racingCars {
+		c.move()
+	}
 }
