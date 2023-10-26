@@ -8,7 +8,7 @@ import (
 func TestMoveRacingCar(t *testing.T) {
 	racingCar := RacingCar{position: 0}
 	racingCar.move()
-	assert.Equal(t, racingCar.position, 1)
+	assert.Equal(t, 1, racingCar.position)
 }
 
 func TestMoveRacingCars(t *testing.T) {
@@ -21,6 +21,21 @@ func TestMoveRacingCars(t *testing.T) {
 	}
 	cars.move()
 	for _, car := range cars.racingCars {
-		assert.Equal(t, car.position, 1)
+		assert.Equal(t, 1, car.position)
+	}
+}
+
+func TestRandomMoveRacingCars(t *testing.T) {
+	cars := RacingCars{
+		[]*RacingCar{
+			{0},
+			{0},
+			{0},
+		},
+	}
+	cars.moveOrNot()
+	cars.moveOrNot()
+	for _, car := range cars.racingCars {
+		assert.GreaterOrEqual(t, 2, car.position)
 	}
 }
