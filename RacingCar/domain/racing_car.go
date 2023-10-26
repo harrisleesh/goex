@@ -3,19 +3,19 @@ package domain
 import "math/rand"
 
 type RacingCar struct {
-	position int
+	Position int
 }
 
 func (c *RacingCar) move() {
-	c.position += 1
+	c.Position += 1
 }
 
 type RacingCars struct {
-	racingCars []*RacingCar
+	Cars []*RacingCar
 }
 
 func (cars *RacingCars) move() {
-	for _, c := range cars.racingCars {
+	for _, c := range cars.Cars {
 		c.move()
 	}
 }
@@ -26,8 +26,8 @@ func (c *RacingCar) moveOrNot() {
 	}
 }
 
-func (cars *RacingCars) moveOrNot() {
-	for _, c := range cars.racingCars {
+func (cars *RacingCars) MoveOrNot() {
+	for _, c := range cars.Cars {
 		c.moveOrNot()
 	}
 }
