@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println("자동차 대수는 몇 대인가요?")
+	fmt.Println("사용자 명을 입력해주세요?")
 	var carCount, tryCount int
 	_, err := fmt.Scanf("%d", &carCount)
 	if err != nil {
