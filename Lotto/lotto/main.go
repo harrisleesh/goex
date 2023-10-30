@@ -9,6 +9,6 @@ import (
 func main() {
 	amount := view.GetPurchaseAmount()
 	lottoCount := amount / 1000
-	fmt.Println(strconv.Itoa(lottoCount) + "개를 구매했습니다.")
+	fmt.Println(strconv.Itoa(int(lottoCount)) + "개를 구매했습니다.")
 	view.GetWinnerNumbers()
 }

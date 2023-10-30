@@ -6,9 +6,9 @@ import (
 	"strings"
 )
 
-func GetPurchaseAmount() int {
+func GetPurchaseAmount() int64 {
 	fmt.Println("구입금액을 입력해 주세요.")
-	var amount int
+	var amount int64
 	_, err := fmt.Scanf("%d", &amount)
 	if err != nil {
 		return 0
