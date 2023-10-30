@@ -9,14 +9,6 @@ type Lotto struct {
 	Numbers []int64
 }
 
-func NewLottos(count int64) []Lotto {
-	lottos := make([]Lotto, count)
-	for i := 0; i < int(count); i++ {
-		lottos[i] = newLotto()
-	}
-	return lottos
-}
-
 func newLotto() Lotto {
 	return Lotto{
 		Numbers: lottoNumbers()[0:6],

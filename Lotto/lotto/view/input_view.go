@@ -23,7 +23,6 @@ func GetWinnerNumbers() []int64 {
 	if err != nil {
 		return nil
 	}
-	fmt.Println(s)
 	winnerStrings := strings.Split(s, ",")
 	winners := make([]int64, len(winnerStrings))
 	for i, winner := range winnerStrings {
