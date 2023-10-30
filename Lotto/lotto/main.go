@@ -13,7 +13,8 @@ func main() {
 	fmt.Println(strconv.Itoa(int(lottoCount)) + "개를 구매했습니다.")
 	lottos := domain.NewLottos(lottoCount)
 	view.PrintLottos(lottos)
-	winnerNumbers := view.GetWinnerNumbers()
-	result := lottos.DrawResults(winnerNumbers)
+	winnerNumbers, bonus := view.GetWinnerNumbers()
+	fmt.Println(bonus)
+	result := lottos.DrawResults(winnerNumbers, bonus)
 	view.PrintResult(result)
 }

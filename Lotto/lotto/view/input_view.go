@@ -16,17 +16,23 @@ func GetPurchaseAmount() int64 {
 	return amount
 }
 
-func GetWinnerNumbers() []int64 {
+func GetWinnerNumbers() ([]int64, int64) {
 	fmt.Println("지난 주 당첨 번호를 입력해 주세요.")
 	var s string
 	_, err := fmt.Scanln(&s)
 	if err != nil {
-		return nil
+		return nil, 0
 	}
 	winnerStrings := strings.Split(s, ",")
 	winners := make([]int64, len(winnerStrings))
 	for i, winner := range winnerStrings {
 		winners[i], _ = strconv.ParseInt(winner, 10, 0)
 	}
-	return winners
+	fmt.Println("보너스 볼을 입력해 주세요.")
+	var bonus int64
+	_, err = fmt.Scanf("%d", &bonus)
+	if err != nil {
+		return nil, 0
+	}
+	return winners, bonus
 }

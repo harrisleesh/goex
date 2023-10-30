@@ -13,7 +13,7 @@ func NewLottos(count int64) Lottos {
 		Lottos: lottos,
 	}
 }
-func (l Lottos) DrawResults(winners []int64) *LottoResult {
+func (l Lottos) DrawResults(winners []int64, bonus int64) *LottoResult {
 	result := &LottoResult{}
 	for _, lotto := range l.Lottos {
 		count := int64(0)
@@ -21,6 +21,9 @@ func (l Lottos) DrawResults(winners []int64) *LottoResult {
 			if contains(lotto.Numbers, winner) {
 				count += 1
 			}
+		}
+		if count == 5 && contains(lotto.Numbers, bonus) {
+			result.AddSecond()
 		}
 		result.AddResult(count)
 	}
