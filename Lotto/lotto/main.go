@@ -9,9 +9,11 @@ import (
 
 func main() {
 	amount := view.GetPurchaseAmount()
-	lottoCount := amount / 1000
-	fmt.Println(strconv.Itoa(int(lottoCount)) + "개를 구매했습니다.")
-	lottos := domain.NewLottos(lottoCount)
+	manualCount := view.GetManualCount()
+	view.GetManualLottoNumbers(manualCount)
+	autoCount := amount/1000 - manualCount
+	fmt.Println("수동으로 "+strconv.Itoa(int(manualCount))+"개, 자동으로", strconv.Itoa(int(autoCount))+"개를 구매했습니다.")
+	lottos := domain.NewLottos(autoCount)
 	view.PrintLottos(lottos)
 	winnerNumbers, bonus := view.GetWinnerNumbers()
 	fmt.Println(bonus)

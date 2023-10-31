@@ -15,6 +15,37 @@ func GetPurchaseAmount() int64 {
 	}
 	return amount
 }
+func GetManualCount() int64 {
+	fmt.Println("수동으로 구매할 로또 수를 입력해 주세요.")
+	var count int64
+	_, err := fmt.Scanf("%d", &count)
+	if err != nil {
+		return 0
+	}
+	return count
+}
+
+func GetManualLottoNumbers(count int64) [][]int64 {
+	fmt.Println("수동으로 구매할 번호를 입력해 주세요.")
+	manualLottos := make([][]int64, count)
+	for i := 0; i < int(count); i++ {
+		numbers := make([]int64, 6)
+		var numberString string
+		_, err := fmt.Scanln(&numberString)
+		if err != nil {
+			return nil
+		}
+		for idx, s := range strings.Split(numberString, ",") {
+			num, err2 := strconv.ParseInt(s, 10, 0)
+			if err2 != nil {
+				return nil
+			}
+			numbers[idx] = num
+		}
+		manualLottos[i] = numbers
+	}
+	return manualLottos
+}
 
 func GetWinnerNumbers() ([]int64, int64) {
 	fmt.Println("지난 주 당첨 번호를 입력해 주세요.")
