@@ -15,6 +15,11 @@ func newLotto() Lotto {
 	}
 }
 
+func newLottoManual(numbers []int64) Lotto {
+	return Lotto{
+		Numbers: numbers,
+	}
+}
 func lottoNumbers() []int64 {
 	arr := make([]int64, 45)
 	for i := 0; i < 45; i++ {

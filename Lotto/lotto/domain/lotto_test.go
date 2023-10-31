@@ -13,3 +13,8 @@ func TestLottoCreate(t *testing.T) {
 	assert.Equal(t, lotto.Numbers, []int64{1, 2, 3, 4, 5, 6})
 	assert.Equal(t, len(newLotto().Numbers), 6)
 }
+
+func TestLottoCreateManual(t *testing.T) {
+	lotto := newLottoManual([]int64{1, 2, 3, 4, 5, 6})
+	assert.Equal(t, lotto.Numbers, []int64{1, 2, 3, 4, 5, 6})
+}
