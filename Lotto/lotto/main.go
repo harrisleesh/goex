@@ -10,10 +10,12 @@ import (
 func main() {
 	amount := view.GetPurchaseAmount()
 	manualCount := view.GetManualCount()
-	view.GetManualLottoNumbers(manualCount)
+	manualNumbers := view.GetManualLottoNumbers(manualCount)
 	autoCount := amount/1000 - manualCount
 	fmt.Println("수동으로 "+strconv.Itoa(int(manualCount))+"개, 자동으로", strconv.Itoa(int(autoCount))+"개를 구매했습니다.")
-	lottos := domain.NewLottos(autoCount)
+	lottosManual := domain.NewLottosManual(manualNumbers)
+	lottosAuto := domain.NewLottos(autoCount)
+	lottos := lottosManual.Append(lottosAuto)
 	view.PrintLottos(lottos)
 	winnerNumbers, bonus := view.GetWinnerNumbers()
 	fmt.Println(bonus)
