@@ -24,8 +24,9 @@ func (l Lottos) DrawResults(winners []int64, bonus int64) *LottoResult {
 		}
 		if count == 5 && contains(lotto.Numbers, bonus) {
 			result.AddSecond()
+		} else {
+			result.AddResult(count)
 		}
-		result.AddResult(count)
 	}
 	result.AddResultRate(int64(len(l.Lottos)))
 	return result
