@@ -14,3 +14,7 @@ func NewDeck() Deck {
 	}
 	return cards
 }
+
+func (d Deck) hands() ([]card, Deck) {
+	return d[0:2], d[2:]
+}
