@@ -8,10 +8,10 @@ import (
 )
 
 func TestNewDeck(t *testing.T) {
-	cards := make([]card, 0)
+	cards := make([]Card, 0)
 	for i := 1; i < 5; i++ {
 		for j := 1; j < 14; j++ {
-			cards = append(cards, card{
+			cards = append(cards, Card{
 				suit:   suit(i),
 				number: j,
 			})
@@ -40,13 +40,13 @@ func TestDeck_hands(t *testing.T) {
 	tests := []struct {
 		name    string
 		d       Deck
-		want    []card
+		want    []Card
 		remains Deck
 	}{
 		{
-			name: "hands test",
+			name: "Hands test",
 			d:    NewDeck(),
-			want: []card{
+			want: []Card{
 				{
 					suit:   spade,
 					number: 1,
@@ -61,9 +61,9 @@ func TestDeck_hands(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got, remains := tt.d.hands()
-			assert.Equalf(t, tt.want, got, "hands()")
-			assert.Equalf(t, tt.remains, remains, "hands()")
+			got, remains := tt.d.Hands()
+			assert.Equalf(t, tt.want, got, "Hands()")
+			assert.Equalf(t, tt.remains, remains, "Hands()")
 		})
 	}
 }

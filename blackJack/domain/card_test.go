@@ -7,7 +7,7 @@ import (
 )
 
 func TestNewCard(t *testing.T) {
-	c := card{
+	c := Card{
 		suit:   clubs,
 		number: 1,
 	}

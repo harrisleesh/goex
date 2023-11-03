@@ -1,6 +1,6 @@
 package domain
 
-type card struct {
+type Card struct {
 	suit   suit
 	number int
 }
@@ -13,3 +13,7 @@ const (
 	clubs
 	diamond
 )
+
+func (c Card) toString() string {
+
+}

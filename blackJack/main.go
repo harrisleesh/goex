@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 
 	"blackJack/domain"
 	"blackJack/view"
@@ -11,11 +10,18 @@ import (
 func main() {
 	fmt.Println("블랙잭 게임을 시작합니다.")
 	names := view.GetParticipateNames()
-	view.PrintHands(names)
+	gamers := make([]domain.Gamer, len(names))
+	view.PrintShare(names)
 	deck := domain.NewDeck()
-	for _, name := range names {
+	for i, name := range names {
+		var hands []domain.Card
+		hands, deck = deck.Hands()
+		gamers[i] = domain.Gamer{
+			Name:  name,
+			Cards: hands,
+		}
 		view.
 	}
-	deck.hands()
+
 	// hands, hit, stay, burst, soft, hard
 }
