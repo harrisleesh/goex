@@ -1,5 +1,10 @@
 package domain
 
+import (
+	"math/rand"
+	"time"
+)
+
 type Deck []Card
 
 func NewDeck() Deck {
@@ -12,7 +17,16 @@ func NewDeck() Deck {
 			})
 		}
 	}
+	Deck(cards).shuffle()
 	return cards
+}
+
+func (d Deck) shuffle() {
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	for i := 0; i < len(d); i++ {
+		newPos := r.Intn(52)
+		d[i], d[newPos] = d[newPos], d[i]
+	}
 }
 
 func (d Deck) Hands() ([]Card, Deck) {
