@@ -12,7 +12,7 @@ func TestNewDeck(t *testing.T) {
 	for i := 1; i < 5; i++ {
 		for j := 1; j < 14; j++ {
 			cards = append(cards, Card{
-				suit:   suit(i),
+				Suit:   suit(i),
 				number: j,
 			})
 		}
@@ -48,11 +48,11 @@ func TestDeck_hands(t *testing.T) {
 			d:    NewDeck(),
 			want: []Card{
 				{
-					suit:   spade,
+					Suit:   spade,
 					number: 1,
 				},
 				{
-					suit:   spade,
+					Suit:   spade,
 					number: 2,
 				},
 			},

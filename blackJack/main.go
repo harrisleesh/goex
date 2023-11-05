@@ -20,7 +20,7 @@ func main() {
 			Name:  name,
 			Cards: hands,
 		}
-		view.
+		view.PrintHands(gamers[i])
 	}
 
 	// hands, hit, stay, burst, soft, hard

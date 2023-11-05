@@ -7,7 +7,7 @@ func NewDeck() Deck {
 	for i := 1; i < 5; i++ {
 		for j := 1; j < 14; j++ {
 			cards = append(cards, Card{
-				suit:   suit(i),
+				Suit:   suit(i),
 				number: j,
 			})
 		}

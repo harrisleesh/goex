@@ -13,8 +13,13 @@ func PrintShare(names []string) {
 }
 
 func PrintHands(gamer domain.Gamer) {
-	fmt.Println(gamer.Name + "카드" + PrintCards(gamer.Cards))
+	fmt.Println(gamer.Name + "카드: " + PrintCards(gamer.Cards))
 }
 
-func PrintCards(cards []domain.Card) {
+func PrintCards(cards []domain.Card) string {
+	ss := make([]string, len(cards))
+	for i, card := range cards {
+		ss[i] = card.ToString()
+	}
+	return strings.Join(ss, ", ")
 }

@@ -8,10 +8,10 @@ import (
 
 func TestNewCard(t *testing.T) {
 	c := Card{
-		suit:   clubs,
+		Suit:   clubs,
 		number: 1,
 	}
 
 	assert.Equal(t, c.number, 1)
-	assert.Equal(t, c.suit, clubs)
+	assert.Equal(t, c.Suit, clubs)
 }
