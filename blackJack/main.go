@@ -14,7 +14,7 @@ func main() {
 	view.PrintShare(names)
 	deck := domain.NewDeck()
 	for i, name := range names {
-		var hands []domain.Card
+		hands := make([]domain.Card, 2)
 		hands, deck = deck.Hands()
 		gamers[i] = domain.Gamer{
 			Name:  name,
@@ -22,6 +22,7 @@ func main() {
 		}
 		view.PrintHands(gamers[i])
 	}
+	fmt.Println()
 	for _, gamer := range gamers {
 		for more := view.MoreCard(gamer.Name); more; more = view.MoreCard(gamer.Name) {
 			var newCard domain.Card
@@ -31,6 +32,7 @@ func main() {
 		}
 		view.PrintHands(gamer)
 	}
+	fmt.Println()
 
 	// hands, hit, stay, burst, soft, hard
 }
