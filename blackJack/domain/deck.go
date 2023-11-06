@@ -32,3 +32,6 @@ func (d Deck) shuffle() {
 func (d Deck) Hands() ([]Card, Deck) {
 	return d[0:2], d[2:]
 }
+func (d Deck) Hit() (Card, Deck) {
+	return d[0], d[1:]
+}

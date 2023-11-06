@@ -22,6 +22,15 @@ func main() {
 		}
 		view.PrintHands(gamers[i])
 	}
+	for _, gamer := range gamers {
+		for more := view.MoreCard(gamer.Name); more; more = view.MoreCard(gamer.Name) {
+			var newCard domain.Card
+			newCard, deck = deck.Hit()
+			gamer.Take(newCard)
+			view.PrintHands(gamer)
+		}
+		view.PrintHands(gamer)
+	}
 
 	// hands, hit, stay, burst, soft, hard
 }

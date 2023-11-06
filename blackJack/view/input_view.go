@@ -14,3 +14,16 @@ func GetParticipateNames() []string {
 	}
 	return strings.Split(names, ",")
 }
+
+func MoreCard(name string) bool {
+	fmt.Println(name + "는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)")
+	var res string
+	_, err := fmt.Scanf("%s", &res)
+	if err != nil {
+		return false
+	}
+	if res == "n" {
+		return false
+	}
+	return true
+}
