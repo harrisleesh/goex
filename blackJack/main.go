@@ -33,6 +33,6 @@ func main() {
 		view.PrintHands(gamer)
 	}
 	fmt.Println()
-
+	view.PrintResult(gamers)
 	// hands, hit, stay, burst, soft, hard
 }

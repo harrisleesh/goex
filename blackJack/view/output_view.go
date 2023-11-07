@@ -23,3 +23,9 @@ func PrintCards(cards []domain.Card) string {
 	}
 	return strings.Join(ss, ", ")
 }
+
+func PrintResult(gamers []domain.Gamer) {
+	for _, gamer := range gamers {
+		fmt.Println(gamer.Name+"카드:", PrintCards(gamer.Cards), "- 결과:", gamer.Result())
+	}
+}
