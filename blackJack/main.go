@@ -23,14 +23,14 @@ func main() {
 		view.PrintHands(gamers[i])
 	}
 	fmt.Println()
-	for _, gamer := range gamers {
-		for more := view.MoreCard(gamer.Name); more; more = view.MoreCard(gamer.Name) {
+	for i, _ := range gamers {
+		for more := view.MoreCard(gamers[i].Name); more; more = view.MoreCard(gamers[i].Name) {
 			var newCard domain.Card
 			newCard, deck = deck.Hit()
-			gamer.Take(newCard)
-			view.PrintHands(gamer)
+			gamers[i].Take(newCard)
+			view.PrintHands(gamers[i])
 		}
-		view.PrintHands(gamer)
+		view.PrintHands(gamers[i])
 	}
 	fmt.Println()
 	view.PrintResult(gamers)
