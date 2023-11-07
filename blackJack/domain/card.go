@@ -37,11 +37,11 @@ func (c Card) ToString() string {
 	switch c.number {
 	case 1:
 		return "A" + c.Suit.String()
-	case 10:
-		return "J" + c.Suit.String()
 	case 11:
-		return "Q" + c.Suit.String()
+		return "J" + c.Suit.String()
 	case 12:
+		return "Q" + c.Suit.String()
+	case 13:
 		return "K" + c.Suit.String()
 	}
 	return strconv.FormatInt(int64(c.number), 10) + c.Suit.String()
