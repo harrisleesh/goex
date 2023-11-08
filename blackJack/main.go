@@ -13,8 +13,15 @@ func main() {
 	gamers := make([]domain.Gamer, len(names))
 	view.PrintShare(names)
 	deck := domain.NewDeck()
+	hands := make([]domain.Card, 2)
+	hands, deck = deck.Hands()
+	dealer := &domain.Gamer{
+		Name:  "딜러",
+		Cards: hands,
+	}
+	view.PrintFirstCard(dealer)
 	for i, name := range names {
-		hands := make([]domain.Card, 2)
+		hands = make([]domain.Card, 2)
 		hands, deck = deck.Hands()
 		gamers[i] = domain.Gamer{
 			Name:  name,
@@ -32,7 +39,15 @@ func main() {
 		}
 		view.PrintHands(gamers[i])
 	}
+	if dealer.Result() <= 16 {
+		view.PrintDealerMoreCard()
+		var newCard domain.Card
+		newCard, deck = deck.Hit()
+		dealer.Take(newCard)
+	}
+
 	fmt.Println()
+	view.PrintDealerResult(dealer)
 	view.PrintResult(gamers)
 	// hands, hit, stay, burst, soft, hard
 }
