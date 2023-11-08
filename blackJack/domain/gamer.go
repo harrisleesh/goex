@@ -3,6 +3,11 @@ package domain
 type Gamer struct {
 	Name  string
 	Cards []Card
+	Point Point
+}
+type Point struct {
+	winCount  int64
+	loseCount int64
 }
 
 func (g *Gamer) Take(c Card) {
