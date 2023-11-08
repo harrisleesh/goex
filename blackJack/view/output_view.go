@@ -9,7 +9,7 @@ import (
 
 func PrintShare(names []string) {
 	nameRes := strings.Join(names, ", ")
-	fmt.Println(nameRes + "에게 2장의 카드를 나누었습니다.")
+	fmt.Println("딜러와 " + nameRes + "에게 2장의 카드를 나누었습니다.")
 }
 
 func PrintHands(gamer domain.Gamer) {
