@@ -21,8 +21,19 @@ func (g Gamer) Result() (total int64) {
 			hasAce = true
 		}
 	}
+	if total > 21 {
+		return -1
+	}
 	if total <= 11 && hasAce {
 		total += 10
 	}
 	return total
+}
+
+func WinningPoint(dealer Gamer, gamers []Gamer) map[string][]int64 {
+	if dealer.Result() < 0 {
+
+	}
+	for _, gamer := range gamers {
+	}
 }
