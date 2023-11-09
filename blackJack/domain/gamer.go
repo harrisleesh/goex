@@ -3,11 +3,11 @@ package domain
 type Gamer struct {
 	Name  string
 	Cards []Card
-	Point Point
+	Point *Point
 }
 type Point struct {
-	winCount  int64
-	loseCount int64
+	WinCount  int64
+	LoseCount int64
 }
 
 func (g *Gamer) Take(c Card) {
@@ -35,10 +35,21 @@ func (g Gamer) Result() (total int64) {
 	return total
 }
 
-func WinningPoint(dealer Gamer, gamers []Gamer) map[string][]int64 {
+func ApplyWinningPoint(dealer Gamer, gamers []Gamer) {
 	if dealer.Result() < 0 {
-
+		for _, gamer := range gamers {
+			gamer.Point.WinCount += 1
+			dealer.Point.LoseCount += 1
+		}
+		return
 	}
 	for _, gamer := range gamers {
+		if gamer.Result() > dealer.Result() {
+			gamer.Point.WinCount += 1
+			dealer.Point.LoseCount += 1
+		} else {
+			gamer.Point.LoseCount += 1
+			dealer.Point.WinCount += 1
+		}
 	}
 }

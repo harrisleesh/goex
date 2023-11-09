@@ -18,6 +18,7 @@ func main() {
 	dealer := &domain.Gamer{
 		Name:  "딜러",
 		Cards: hands,
+		Point: &domain.Point{},
 	}
 	view.PrintFirstCard(dealer)
 	for i, name := range names {
@@ -26,6 +27,7 @@ func main() {
 		gamers[i] = domain.Gamer{
 			Name:  name,
 			Cards: hands,
+			Point: &domain.Point{},
 		}
 		view.PrintHands(gamers[i])
 	}
@@ -50,4 +52,6 @@ func main() {
 	view.PrintDealerResult(dealer)
 	view.PrintResult(gamers)
 	// hands, hit, stay, burst, soft, hard
+	domain.ApplyWinningPoint(*dealer, gamers)
+	view.PrintWinningPointAll(*dealer, gamers)
 }

@@ -2,6 +2,7 @@ package view
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 
 	"blackJack/domain"
@@ -40,4 +41,22 @@ func PrintResult(gamers []domain.Gamer) {
 	for _, gamer := range gamers {
 		fmt.Println(gamer.Name+"카드:", PrintCards(gamer.Cards), "- 결과:", gamer.Result())
 	}
+}
+
+func PrintWinningPointAll(dealer domain.Gamer, gamers []domain.Gamer) {
+	fmt.Println("## 최종 승패")
+	PrintWinningPoint(dealer)
+	for _, gamer := range gamers {
+		PrintWinningPoint(gamer)
+	}
+}
+func PrintWinningPoint(gamer domain.Gamer) {
+	fmt.Print(gamer.Name + ": ")
+	if gamer.Point.WinCount != 0 {
+		fmt.Print(strconv.FormatInt(gamer.Point.WinCount, 10) + "승 ")
+	}
+	if gamer.Point.LoseCount != 0 {
+		fmt.Print(strconv.FormatInt(gamer.Point.LoseCount, 10) + "패")
+	}
+	fmt.Println()
 }
